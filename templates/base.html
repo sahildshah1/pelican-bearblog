@@ -42,22 +42,22 @@
 
   <body>
     <header>
-      <hgroup><h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>{% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}</hgroup>
-      <nav><ul>
+      <hgroup><h1>{{ SITENAME }}</h1>{% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}</hgroup>
+      <nav><p>
         {% for title, link in MENUITEMS %}
-          <li><a href="{{ link }}">{{ title }}</a></li>
+          <a href="{{ link }}">{{ title }}</a>
         {% endfor %}
         {% if DISPLAY_PAGES_ON_MENU %}
           {% for p in pages %}
-            <li><a href="{{ SITEURL }}/{{ p.url }}" {% if p==page %} aria-current="page" {% endif %}>{{ p.title }}</a></li>
+            <a href="{{ SITEURL }}/{{ p.url }}" {% if p==page %} aria-current="page" {% endif %}>{{ p.title }}</a>
           {% endfor %}
         {% endif %}
         {% if DISPLAY_CATEGORIES_ON_MENU %}
           {% for cat, null in categories %}
-            <li><a href="{{ SITEURL }}/{{ cat.url }}" {% if cat==category %} aria-current="page" {% endif %}>{{ cat}}</a></li>
+            <a href="{{ SITEURL }}/{{ cat.url }}" {% if cat==category %} aria-current="page" {% endif %}>{{ cat}}</a>
           {% endfor %}
         {% endif %}
-      </ul></nav>
+      </ul></p>
     </header>
     <main>
       {% block content %}
@@ -65,8 +65,7 @@
     </main>
     <footer>
       <address>
-        Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>,
-        which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+        Made with <a href="https://github.com/sahildshah1/pelican-bearblog/">Pelican ʕ•ᴥ•ʔ Bear</a>
       </address>
     </footer>
   </body>
